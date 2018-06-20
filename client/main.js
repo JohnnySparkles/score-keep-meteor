@@ -4,7 +4,7 @@ import {Meteor} from 'meteor/meteor';
 import {Players} from './../imports/api/players';
 import {Tracker} from 'meteor/tracker';
 import './main.html'
-
+import TitleBar from './../imports/ui/TitleBar';
 
 const renderPlayers = (playersList) => {
 
@@ -31,6 +31,8 @@ const handleSubmit = (e) => {
   }
 };
 
+
+
 Meteor.startup(() => {
 
   Tracker.autorun(() => {
@@ -39,9 +41,7 @@ Meteor.startup(() => {
     let name = 'John Wieland';
     let jsx = (
         <div>
-          <h1>{title}</h1>
-          <p>Hello, {name}</p>
-          <p>This is my second p</p>
+          <TitleBar title={"Score Keeper"}/>
           {renderPlayers(players)}
 
           <form onSubmit={handleSubmit}>
