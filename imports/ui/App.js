@@ -2,6 +2,7 @@ import React from 'react';
 import TitleBar from './../ui/TitleBar';
 import AddPlayer from './../ui/AddPlayer';
 import PlayerList from './../ui/PlayerList';
+import PropTypes from 'prop-types';
 
 
 export default class App extends React.Component {
@@ -15,3 +16,9 @@ export default class App extends React.Component {
     );
   };
 }
+
+App.propTypes = {
+  title: PropTypes.string.isRequired,
+  players: PropTypes.array.isRequired
+}
+
