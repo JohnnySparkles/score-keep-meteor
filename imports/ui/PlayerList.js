@@ -1,6 +1,8 @@
 import React from 'react';
 import Player from './Player';
 import PropTypes from 'prop-types';
+import FlipMove from 'react-flip-move';
+
 
 export default class PlayerList extends React.Component {
    constructor(props) {
@@ -11,7 +13,11 @@ export default class PlayerList extends React.Component {
 
    renderPlayers() {
      if (this.props.players.length === 0) {
-       return (<p>There are no players.</p>)
+       return (
+         <div className={"item"}>
+           <p className={"item__message"}>Add your first player to get started.</p>
+         </div>
+       )
      }
 
      return this.props.players.map((player) => {
@@ -22,7 +28,9 @@ export default class PlayerList extends React.Component {
    render() {
       return (
       <div>
-        {this.renderPlayers()}
+        <FlipMove maintainContainerHeight={true}>
+          {this.renderPlayers()}
+        </FlipMove>
       </div>);
    }
 }
